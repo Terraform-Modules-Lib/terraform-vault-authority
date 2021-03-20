@@ -7,6 +7,11 @@ variable "description" {
   default = ""
 }
 
+variable "path_prefix" {
+  type = string
+  default = ""
+}
+
 variable "parent_authority_path" {
   type = string
   default = ""
