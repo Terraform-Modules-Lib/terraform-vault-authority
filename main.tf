@@ -18,7 +18,7 @@ locals {
 }
 
 module "root" {
-  count = var.parent_ca == "" ? 1 : 0
+  count = var.parent_authority_path == "" ? 1 : 0
   
   source = "github.com/Terraform-Modules-Lib/terraform-vault-pki_root_ca"
   
@@ -29,7 +29,7 @@ module "root" {
 }
   
 module "intermediate" {
-  count = var.parent_ca == "" ? 0 : 1
+  count = var.parent_authority_path == "" ? 0 : 1
   
   source = "github.com/Terraform-Modules-Lib/terraform-vault-pki_intermediate_ca"
   
@@ -38,7 +38,7 @@ module "intermediate" {
   description = local.description
   urls_prefix = local.urls_prefix
   
-  parent_ca = var.parent_ca
+  parent_ca = var.parent_authority_path
 }
   
 locals {
