@@ -42,5 +42,5 @@ module "intermediate" {
 }
   
 locals {
-  authority = try(module.root[0].authority, module.intermediate[0].authority)
+  this = try(module.root[0].authority, module.intermediate[0].authority)
 }
